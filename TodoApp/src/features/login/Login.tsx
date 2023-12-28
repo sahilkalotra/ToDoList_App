@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 
 import {axiosInstance} from '../../api/axiosInstance';
-
 import styles from './styles';
 
 const Login = ({navigation}: any) => {
@@ -19,15 +18,6 @@ const Login = ({navigation}: any) => {
         .then(res => {
           console.log(res?.data, '<=====');
         });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  const getuser = async () => {
-    try {
-      await axiosInstance.get('/getuser').then(res => {
-        console.log(res?.headers, '<=====');
-      });
     } catch (error) {
       console.error(error);
     }
@@ -54,7 +44,9 @@ const Login = ({navigation}: any) => {
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.loginButtonText}>Login</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.signUpButton} onPress={getuser}>
+      <TouchableOpacity
+        style={styles.signUpButton}
+        onPress={() => navigation.navigate('SignUp')}>
         <Text style={styles.loginButtonText}>SignUp</Text>
       </TouchableOpacity>
     </View>
