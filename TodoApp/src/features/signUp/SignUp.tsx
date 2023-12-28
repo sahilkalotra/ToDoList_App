@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+
+import {axiosInstance} from '../../api/axiosInstance';
 import styles from './styles';
-import {axiosInstance} from '../../utils';
 
 const SignUp = ({navigation}: any) => {
   const [firstName, setFirstName] = useState('');

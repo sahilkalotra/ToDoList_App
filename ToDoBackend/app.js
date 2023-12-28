@@ -2,9 +2,12 @@ import express from "express";
 
 import { ValidationError } from "express-validation";
 import cors from "cors";
+
 import router from "./routers.js";
+import { configDotenv } from "dotenv";
 
 const app = express();
+configDotenv()
 
 const corsOption = {
   origin: ["http://localhost:3001"],
@@ -19,7 +22,7 @@ app.use((_req, res, next) => {
   next();
 });
 
-const port = 3001;
+const port = process.env.PORT ;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
