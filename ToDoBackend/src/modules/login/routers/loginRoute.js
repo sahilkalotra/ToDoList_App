@@ -1,7 +1,8 @@
 import { Router } from "express";
-import loginController from "../controllers/loginController.js";
 import { validate } from "express-validation";
+
 import request from "../requests/request.js";
+import loginController from "../controllers/loginController.js";
 import verifyToken from "../../../middlewares/authentication.js";
 
 const route = Router();

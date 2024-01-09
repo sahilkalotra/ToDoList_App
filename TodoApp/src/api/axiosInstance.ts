@@ -29,7 +29,6 @@ axiosInstance.interceptors.response.use(async response => {
     response.data.Authorization ||
     response.headers.Authorization ||
     response.headers.authorization;
-  console.log(authToken, '<====authToken');
   if (authToken) {
     await AsyncStorage.setItem(StorageKey.Authorization, authToken);
   }

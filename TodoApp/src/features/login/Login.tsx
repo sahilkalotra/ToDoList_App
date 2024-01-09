@@ -22,6 +22,15 @@ const Login = ({navigation}: any) => {
       console.error(error);
     }
   };
+  const getData = async () => {
+    try {
+      await axiosInstance.get('/getuser').then(res => {
+        console.log(res?.data, '<=====');
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -44,9 +53,7 @@ const Login = ({navigation}: any) => {
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.loginButtonText}>Login</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.signUpButton}
-        onPress={() => navigation.navigate('SignUp')}>
+      <TouchableOpacity style={styles.signUpButton} onPress={() => getData()}>
         <Text style={styles.loginButtonText}>SignUp</Text>
       </TouchableOpacity>
     </View>
